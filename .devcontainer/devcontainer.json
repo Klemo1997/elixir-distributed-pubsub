@@ -1,0 +1,19 @@
+{
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/app",
+    "name": "transhook-devcontainer",
+    "onCreateCommand": "elixir --version",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "jakebecker.elixir-ls",
+          "eamodio.gitlens",
+          "ritvyk.heex-html"
+        ]
+      }
+    },
+    "forwardPorts": [
+      4000
+    ]
+  }
