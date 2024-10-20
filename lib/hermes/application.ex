@@ -7,8 +7,14 @@ defmodule Hermes.Application do
 
   @impl true
   def start(_type, _args) do
+    topologies = [
+      hermes_local: [
+        strategy: Cluster.Strategy.LocalEpmd
+      ]
+    ]
+
     children = [
-      # Starts a worker by calling: Hermes.Worker.start_link(arg)
+      {Cluster.Supervisor, [topologies, [name: Hermes.ClusterSupervisor]]},
       {Registry, keys: :duplicate, name: Hermes.Registry}
     ]
 
