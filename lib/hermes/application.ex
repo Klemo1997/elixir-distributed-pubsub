@@ -9,7 +9,7 @@ defmodule Hermes.Application do
   def start(_type, _args) do
     children = [
       # Starts a worker by calling: Hermes.Worker.start_link(arg)
-      # {Hermes.Worker, arg}
+      {Registry, keys: :duplicate, name: Hermes.Registry}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

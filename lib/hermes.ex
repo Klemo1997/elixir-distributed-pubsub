@@ -1,18 +1,13 @@
 defmodule Hermes do
-  @moduledoc """
-  Documentation for `Hermes`.
-  """
+  @registry Hermes.Registry
 
-  @doc """
-  Hello world.
+  def subscribe(topic) when is_atom(topic) do
+    Registry.register(@registry, topic, nil)
+  end
 
-  ## Examples
-
-      iex> Hermes.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def publish(topic, message) when is_atom(topic) do
+    Registry.dispatch(@registry, topic, fn entries ->
+      for {pid, _} <- entries, do: send(pid, message)
+    end)
   end
 end
