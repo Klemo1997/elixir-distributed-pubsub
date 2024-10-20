@@ -25,15 +25,15 @@ iex --sname carol -S mix
 Libcluster automatically discovers and connects these local nodes.
 
 For this test, we’ll have the following:
-    - Alice:
-        - 1 client subscribed to `:user_created`
-        - 1 client subscribed to `:user_updated`
-    - Bob:
-        - 5 clients subscribed to `:user_created`
-        - 0 clients subscribed to `:user_updated`
-    - Carol:
-        - 0 clients subscribed to `:user_created`
-        - 2 clients subscribed to `:user_updated`
+- Alice:
+  - 1 client subscribed to `:user_created`
+  - 1 client subscribed to `:user_updated`
+- Bob:
+  - 5 clients subscribed to `:user_created`
+  - 0 clients subscribed to `:user_updated`
+- Carol:
+  - 0 clients subscribed to `:user_created`
+  - 2 clients subscribed to `:user_updated`
 
 ```sh
 # Node: Alice
