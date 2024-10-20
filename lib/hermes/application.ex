@@ -15,7 +15,8 @@ defmodule Hermes.Application do
 
     children = [
       {Cluster.Supervisor, [topologies, [name: Hermes.ClusterSupervisor]]},
-      {Registry, keys: :duplicate, name: Hermes.Registry}
+      {Registry, keys: :duplicate, name: Hermes.Registry},
+      Hermes.PGServer,
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
